@@ -33,3 +33,23 @@
   margin: 40px auto;
   padding: 20px;
 }
+.blog-list{
+  padding: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+.blog-preview {
+  padding: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+  border-bottom: 1px solid #f2f2f2;
+  transition: all ease-in 0.3s;
+}
+.blog-preview:hover{
+  box-shadow: 1px 3px 5px #333;
+}
+.blog-preview h2{
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
+}
