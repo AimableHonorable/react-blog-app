@@ -1,0 +1,19 @@
+{
+  "blogs": [
+    {
+      "title": "Learn react",
+      "author": "mario",
+      "id": 1
+    },
+    {
+      "title": "my website",
+      "author": "lucy",
+      "id": 2
+    },
+    {
+      "title": "react native tutorial",
+      "author": "claire",
+      "id": 3
+    }
+  ]
+}
