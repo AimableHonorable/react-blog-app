@@ -1,38 +1,21 @@
-import { useState, useEffect } from 'react'
+
+import useFetch from '../useFetch'
 import BlogList from './BlogList'
 
 const Home = () => {
-  const [blogs, setBlog] = useState(null)
-
-  // initially set the loading state to true in order to show the loading message on the screen while fetching data from the server. 
-  const [isPending, setisPending] = useState(true)
-
-  const handleDelete = (id) => {
-    setBlog(blogs.filter((blog) => blog.id !== id))
-  }
+  const {data, isPending, error} = useFetch('http://localhost:8000/blogs')
 
 
-  // useEffect runs everytime a render occurs
-  useEffect(() => {
-    fetch('http://localhost:8000/blogs')
-    .then(res => {
-      return res.json();
-    })
-    .then(data => {
-      setBlog(data);
 
-      // after fetching the data we need to stop showing loading message to the screen by setting isPending function state to false
-      setisPending(false);
-    })
-  }, [])
-
+  
   return (
-    <div>
+    <div className="blog-list">
+      { error && <div>{ error }</div> }
       { isPending && <div><h2>Loading, Please wait...</h2></div> }
-      {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />}
+      {data && <BlogList blogs={data} title="All Blogs"  />}
 
       {/* filter list items according to various conditions */}
-      {blogs && <BlogList blogs={blogs.filter((blog) => blog.author === "mario")} title="Mario's blogs" handleDelete={handleDelete} />}
+      {data && <BlogList blogs={data.filter((blog) => blog.author === "mario")} title="Mario's blogs"/>}
     </div>
   )
 }
