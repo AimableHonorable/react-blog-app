@@ -1,3 +1,5 @@
+import { Button } from "react-bootstrap"
+
 const BlogList = ({blogs, title, handleDelete}) => {
   return (
     <div className="blog-list">
@@ -6,7 +8,9 @@ const BlogList = ({blogs, title, handleDelete}) => {
         <div className="blog-preview" key={blog.id}>
           <h2>{blog.title}</h2>
           <p>Written by {blog.author}</p>
-          <button onClick={() => handleDelete(blog.id)}>Delet Blog</button>
+          <Button onClick={() => handleDelete(blog.id)}>Delet Blog</Button>
+          <Button variant="info">bgutonh</Button>
+          <Button  backgroundColor="white">Warning</Button>{' '}
         </div>
       ))}
     </div>

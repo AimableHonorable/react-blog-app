@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <div>
-      { isPending && <div><h2>Loading, Please wait...</h2></div> }
+      { isPending && <div className="loader"></div> }
       {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />}
 
       {/* filter list items according to various conditions */}
