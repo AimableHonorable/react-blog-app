@@ -1,4 +1,3 @@
-
 import useFetch from '../useFetch'
 import BlogList from './BlogList'
 
@@ -10,7 +9,7 @@ const Home = () => {
       { error && <div>{ error }</div> }
       { isPending && <div className="loader"></div> }
       {data && <BlogList blogs={data} title="All Blogs"  />}
-      
+    
       {/* filter list items according to various conditions */}
       {data && <BlogList blogs={data.filter((blog) => blog.author === "mario")} title="Mario's blogs"/>}
     </div>
